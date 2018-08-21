@@ -1,0 +1,2 @@
+module Jira::UsersHelper
+end

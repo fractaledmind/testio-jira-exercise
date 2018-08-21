@@ -1,0 +1,2 @@
+module Jira::ProjectsHelper
+end

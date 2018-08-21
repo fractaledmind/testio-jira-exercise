@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jira Issues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Jira project</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jira_issues.each do |jira_issue| %>
+      <tr>
+        <td><%= jira_issue.title %></td>
+        <td><%= jira_issue.description %></td>
+        <td><%= jira_issue.jira_project %></td>
+        <td><%= link_to 'Show', jira_issue %></td>
+        <td><%= link_to 'Edit', edit_jira_issue_path(jira_issue) %></td>
+        <td><%= link_to 'Destroy', jira_issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jira Issue', new_jira_issue_path %>

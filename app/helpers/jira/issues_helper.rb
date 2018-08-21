@@ -1,0 +1,2 @@
+module Jira::IssuesHelper
+end
