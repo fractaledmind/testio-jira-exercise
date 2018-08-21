@@ -4,12 +4,14 @@
       <h2><%= pluralize(jira_issue.errors.count, "error") %> prohibited this jira_issue from being saved:</h2>
 
       <ul>
-      <% jira_issue.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% jira_issue.errors.each do |k, message| %>
+        <li><%= message[:message] %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
+  <%= hidden_field_tag :jira_user_id, params[:jira_user_id] %>
 
   <div class="field">
     <%= form.label :title %>
@@ -22,8 +24,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :jira_project_id %>
-    <%= form.text_field :jira_project_id %>
+    <%= form.hidden_field :jira_project_id, value: params[:jira_project_id] %>
   </div>
 
   <div class="actions">
