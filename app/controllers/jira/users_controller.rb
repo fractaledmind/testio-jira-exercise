@@ -7,7 +7,7 @@ class Jira::UsersController < ApplicationController
     @jira_user = Jira::User.new(jira_user_params)
 
     if @jira_user.save
-      redirect_to jira_projects_path
+      redirect_to jira_projects_path(jira_user_id: @jira_user.id)
     else
       render :new
     end
